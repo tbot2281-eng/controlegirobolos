@@ -1,7 +1,7 @@
 /* =============================
    URL DO WEBAPP DO GOOGLE SCRIPT
    ============================= */
-const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwIdvqFnQXMnJ0K-lpE81Sa_AHV_KqkKUhhGdJZpOBuAtt92A9RzKCXdYV4OV4FUIacag/exec";
+const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbwmY7xrUgcYw3yT9_GpWuPCvE1hkcK5LP2oeWwFxMj6qdaZbnpyJdz_KAP5bTDFpLvjvw/exec";
 
 
 /* =============================
@@ -216,5 +216,6 @@ function renderHist(setor, slug) {
   d.textContent = lista.join(" – ");
   box.appendChild(d);
 }
+
 
 
