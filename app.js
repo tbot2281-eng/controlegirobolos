@@ -1,8 +1,8 @@
 /* =============================
    URL DO WEBAPP DO GOOGLE SCRIPT
    ============================= */
-const WEBAPP_URL =
-  "https://script.google.com/macros/s/AKfycbwACklme4fn58nNhQ9Kdl7m5IVRFB1dK1WQSzAwcLSG9r57lhf8BEwWnu_wd4fk0ASI/exec";
+const WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyof16LxCFJYwa7O9oBttHAe7nnNM8JhtHpyCfavvLY4GEx1tSyYbnqzbFyCOHBoDHVyQ/exec";
+
 
 /* =============================
    Função genérica da API
@@ -216,3 +216,4 @@ function renderHist(setor, slug) {
   d.textContent = lista.join(" – ");
   box.appendChild(d);
 }
+
