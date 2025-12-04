@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel de Lotes</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    .modalBtn { padding: 12px; border-radius: 8px; background: #000; color: #fff; font-weight: bold; cursor: pointer; text-align: center; }
+    body { font-family: Arial; padding: 15px; background: #fafafa; }
+    h1 { font-size: 22px; text-align: center; margin-bottom: 20px; }
+    #app { max-width: 420px; margin: 0 auto; }
+    .btn-historico { background: #000; color: #fff; border: 1px solid #000; padding: 10px 18px; border-radius: 20px; width: 100%; margin: 6px 0; font-size: 14px; font-weight: bold; cursor: pointer; text-align: center; }
+    .btn-setor { background: #fff; border: 1px solid #ccc; padding: 10px 18px; border-radius: 20px; width: 100%; margin: 6px 0; font-size: 13px; font-weight: bold; cursor: pointer; text-align: center; }
+    .voltar { background: #555; color: #fff; padding: 10px; border-radius: 6px; cursor: pointer; margin: 20px 0; display: block; width: 100%; text-align: center; font-weight: bold; }
+    .sabor { border-bottom: 1px solid #ddd; padding-bottom: 12px; margin-bottom: 18px; }
+    .btn-lote, .btn { padding: 10px 14px; border: 1px solid #777; border-radius: 6px; background: #fff; margin: 4px; cursor: pointer; font-size: 14px; font-weight: bold; }
+    .btn.enviar-btn { background: #000 !important; color: #fff !important; border-color: #000 !important; }
+    .selecionado { background: #4CAF50 !important; color: #fff !important; }
+    .hist-item { background: #fff9b0; border: 1px solid #d6cb76; padding: 5px 10px; margin: 4px 0; border-radius: 6px; font-weight: bold; display: inline-block; }
+    .edit-btn { display: inline-block; margin-left: 10px; padding: 4px 10px; background: #d0d0ff; border: 1px solid #666; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: bold; }
+
+    #alertFundo { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 9999; }
+    #alertBox { background: white; padding: 25px; border-radius: 12px; width: 90%; max-width: 420px; text-align: center; }
+    #alertMsg { font-size: 20px; font-weight: bold; color: #000; margin-bottom: 20px; white-space: pre-line; }
+    .alertBtn { margin-top: 10px; padding: 12px; border-radius: 8px; background: #000; color: #fff; font-weight: bold; cursor: pointer; width: 100%; }
+
+    #modalFundo { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 9999; }
+    #modalBox { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 420px; }
+    .modalTitulo { font-size: 18px; font-weight: bold; margin-bottom: 10px; }
+    .linhaRegistro { padding: 6px; border: 1px solid #aaa; border-radius: 6px; margin-bottom: 6px; background: #f7f7f7; cursor: pointer; }
+    .linhaRegistro.selecionado { background: #4CAF50; color: white; }
+    .btnDel { background: #ff4444; color: white; padding: 10px 14px; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; margin-top: 10px; width: 100%; }
+  </style>
+</head>
+
+<body>
+
+<h1 id="tituloPagina">Carregando…</h1>
+
+<div id="app">Carregando…</div>
+
+<div id="alertFundo">
+  <div id="alertBox">
+    <div id="alertMsg"></div>
+    <div class="alertBtn" onclick="fecharAlerta()">OK</div>
+  </div>
+</div>
+
+<div id="modalFundo">
+  <div id="modalBox">
+    <div id="modalTitulo" class="modalTitulo"></div>
+    <div id="listaEdicao"></div>
+
+    <div style="margin-top:15px; display:flex; justify-content:space-between;">
+      <div class="modalBtn" style="width:48%;" onclick="salvarEdicao()">SALVAR</div>
+      <div class="modalBtn" style="width:48%;" onclick="fecharModal()">CANCELAR</div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+<script>
+window.addEventListener("load", () => {
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js")
+      .then(reg => console.log("SW registrado"))
+      .catch(err => console.error("Erro SW:", err));
+  }
+});
+</script>
+
+</body>
+</html>
